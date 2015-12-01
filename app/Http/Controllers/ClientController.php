@@ -20,16 +20,6 @@ class ClientController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -37,7 +27,7 @@ class ClientController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return \App\Client::create($request->all());
     }
 
     /**
@@ -48,7 +38,9 @@ class ClientController extends Controller
      */
     public function show($id)
     {
-        //
+        // echo $id;
+        // die;
+        return \App\Client::find($id);
     }
 
     /**
@@ -82,6 +74,6 @@ class ClientController extends Controller
      */
     public function destroy($id)
     {
-        //
+        \App\Client::find($id)->delete();
     }
 }
